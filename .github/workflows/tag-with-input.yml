@@ -39,7 +39,7 @@ jobs:
           echo test, and deploy your project.
           
       - name: Set tag
-        run: git tag ${{ github.event.inputs.tag }} ${GITHUB_SHA}
+        run: git tag ${{ github.event.inputs.tag }} ${{ GITHUB_SHA }}
         
       - name: Push ag
         run: git push --tags
