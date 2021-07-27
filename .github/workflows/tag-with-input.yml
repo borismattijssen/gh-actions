@@ -28,7 +28,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: 8BitJonny/gh-get-current-pr@1.1.0
-        id: PR
+        id: 2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # Only return if PR is still open
