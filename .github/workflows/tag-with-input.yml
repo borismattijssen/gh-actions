@@ -29,10 +29,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: GHEP
-        run: echo ${GITHUB_EVENT_PATH}
+        run: cat ${GITHUB_EVENT_PATH}
         
       - name: GHEP2
-        run: echo $GITHUB_EVENT_PATH
+        run: cat $GITHUB_EVENT_PATH
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
