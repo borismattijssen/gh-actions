@@ -1,0 +1,26 @@
+name: Create Release
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  release:
+  # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      - name: Print env
+        run: cat ${GITHUB_EVENT_PATH}
+      
+      - name: Create tag
+        run: git tag github.event.pull_request.labels[0] ${GITHUB_SHA}
+        if: github.event.pull_request.merged == true
+
+      - name: Push tag
+        run: git push --tags
+        if: github.event.pull_request.merged == true
